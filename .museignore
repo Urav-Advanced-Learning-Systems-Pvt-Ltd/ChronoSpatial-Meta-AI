@@ -1,0 +1,56 @@
+# ====================================================================
+# Unity Temporary & Generated Folders (DO NOT LET MUSE READ THESE)
+# ====================================================================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+.vs/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# ====================================================================
+# Unity Metadata & Binary Blobs
+# ====================================================================
+*.meta
+*.unity
+*.prefab
+*.asset
+*.mat
+*.physicMaterial
+*.renderTexture
+*.controller
+*.anim
+*.mask
+
+# Media & Large Binary Files
+*.apk
+*.mp4
+*.mov
+*.avi
+*.png
+*.jpg
+*.jpeg
+*.tga
+*.psd
+*.docx
+*.pdf
+*.zip
+*.tar.gz
+unity-create.log
+
+# Crash / Profiler dumps
+sysinfo.txt
+*.stackdump

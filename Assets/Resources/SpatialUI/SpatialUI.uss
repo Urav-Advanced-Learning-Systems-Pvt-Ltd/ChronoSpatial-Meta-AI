@@ -1,0 +1,282 @@
+/* SpatialAI mobile theme v4 — UI Toolkit (USS), portrait-first.
+   Design tokens: frosted charcoal #161922 cards, Meta Royal Blue #0064E0
+   primary, 48px+ touch targets (60-64px actions), 16-18px corners.
+   AR camera is the hero; chrome floats: slim top status bar, bottom action
+   dock, 76px tab bar, bottom-sheet guidance/telemetry/dialogs.
+   Safe-area insets arrive as root padding from SpatialAISafeArea, so all
+   absolute offsets below are measured inside the safe region.
+   Breakpoints come from code (.compact phones, .wide tablets, .portrait). */
+
+.app-root { flex-grow: 1; flex-direction: column; }
+
+/* In-flow spacer: pushes sheets, dock, and tabs to the bottom while the
+   AR view shows through the middle. Hidden panels (display:none) take no
+   space, so a sheet can never overlap the dock and no offset math is
+   needed to clear the notch or the gesture bar: the root safe-area
+   padding does it. */
+.app-spacer { flex-grow: 1; }
+
+.glass {
+    background-color: rgba(22, 25, 34, 0.82);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-left-width: 1px; border-right-width: 1px;
+    border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: rgba(255, 255, 255, 0.16);
+    border-right-color: rgba(255, 255, 255, 0.16);
+    border-top-color: rgba(255, 255, 255, 0.16);
+    border-bottom-color: rgba(255, 255, 255, 0.16);
+}
+
+.card {
+    background-color: rgba(22, 25, 34, 0.96);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left-width: 1px; border-right-width: 1px;
+    border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: rgba(255, 255, 255, 0.16);
+    border-right-color: rgba(255, 255, 255, 0.16);
+    border-top-color: rgba(255, 255, 255, 0.16);
+    border-bottom-color: rgba(255, 255, 255, 0.16);
+    padding-left: 20px; padding-right: 20px;
+    padding-top: 20px; padding-bottom: 20px;
+}
+
+.title { color: rgb(255,255,255); font-size: 45px; -unity-font-style: bold; margin-bottom: 8px; }
+.brand { color: rgb(255,255,255); font-size: 43px; -unity-font-style: bold; margin-right: 12px; -unity-text-align: middle-left; white-space: nowrap; }
+.body-text { color: rgb(255,255,255); font-size: 33px; white-space: normal; }
+.muted { color: rgba(255,255,255,0.68); font-size: 29px; white-space: normal; }
+.sheet-handle-title { color: rgb(255,255,255); font-size: 32px; -unity-font-style: bold; -unity-text-align: middle-center; margin-bottom: 8px; }
+.sheet-handle { height: 6px; width: 62px; background-color: rgba(255,255,255,0.45); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; align-self: center; margin-bottom: 10px; }
+
+.field-label { color: rgba(255,255,255,0.68); font-size: 28px; -unity-font-style: bold; margin-top: 14px; margin-bottom: 6px; }
+.field { height: 100px; }
+.field .unity-text-field__input {
+    background-color: rgb(16, 18, 24);
+    color: rgb(255,255,255);
+    font-size: 33px;
+    border-top-left-radius: 14px; border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+    border-left-width: 1px; border-right-width: 1px;
+    border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: rgba(255,255,255,0.16);
+    border-right-color: rgba(255,255,255,0.16);
+    border-top-color: rgba(255,255,255,0.16);
+    border-bottom-color: rgba(255,255,255,0.16);
+    padding-left: 16px; padding-right: 16px;
+}
+.field .unity-text-field__input:focus { border-left-color: rgb(0, 150, 255); border-right-color: rgb(0, 150, 255); border-top-color: rgb(0, 150, 255); border-bottom-color: rgb(0, 150, 255); }
+
+/* Touch targets: 60px secondary, 64px primary, 16px corners. */
+.btn {
+    height: 103px;
+    margin-top: 5px; margin-bottom: 5px;
+    background-color: rgb(40, 44, 57);
+    color: rgb(255,255,255);
+    font-size: 34px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    border-top-left-radius: 16px; border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;
+    border-left-width: 1px; border-right-width: 1px;
+    border-top-width: 1px; border-bottom-width: 1px;
+    border-left-color: rgba(255,255,255,0.14);
+    border-right-color: rgba(255,255,255,0.14);
+    border-top-color: rgba(255,255,255,0.14);
+    border-bottom-color: rgba(255,255,255,0.14);
+    padding-left: 12px; padding-right: 12px;
+}
+.btn:hover { background-color: rgb(54, 59, 75); }
+.btn:active { background-color: rgb(29, 32, 42); }
+.btn:focus { border-left-color: rgb(0, 150, 255); border-right-color: rgb(0, 150, 255); border-top-color: rgb(0, 150, 255); border-bottom-color: rgb(0, 150, 255); }
+.btn:disabled { opacity: 0.45; }
+.btn-primary {
+    height: 106px;
+    background-color: rgb(0, 100, 224);
+    border-left-color: rgba(255,255,255,0.22);
+    border-right-color: rgba(255,255,255,0.22);
+    border-top-color: rgba(255,255,255,0.22);
+    border-bottom-color: rgba(255,255,255,0.22);
+}
+.btn-primary:hover { background-color: rgb(26, 118, 240); }
+.btn-primary:active { background-color: rgb(0, 76, 173); }
+
+.pill-row { flex-direction: row; flex-wrap: wrap; margin-top: 8px; }
+.pill {
+    height: 87px;
+    padding-left: 22px; padding-right: 22px;
+    margin-right: 10px; margin-bottom: 10px;
+    font-size: 32px;
+    background-color: rgba(0, 100, 224, 0.18);
+    border-top-left-radius: 24px; border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;
+    border-left-color: rgba(0, 150, 255, 0.55);
+    border-right-color: rgba(0, 150, 255, 0.55);
+    border-top-color: rgba(0, 150, 255, 0.55);
+    border-bottom-color: rgba(0, 150, 255, 0.55);
+}
+.pill:hover { background-color: rgba(0, 100, 224, 0.32); }
+.pill:active { background-color: rgba(0, 100, 224, 0.45); }
+
+/* Slim brand row up top (gear floats top-right on the settings surface,
+   aligned with this row); live chips sit full-width just above the dock.
+   All in-flow so root safe-area padding clears the notch and gesture bar. */
+.telemetry-bar {
+    margin-top: 10px; margin-left: 10px; margin-right: 135px;
+    align-self: flex-start;
+    flex-direction: row; align-items: center;
+    padding-left: 16px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;
+}
+.status-bar {
+    margin-top: 10px; margin-left: 10px; margin-right: 10px;
+    flex-direction: row; flex-wrap: wrap; align-items: center;
+    justify-content: space-evenly;
+    padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
+}
+.status-bar .chip { margin-left: 4px; margin-right: 4px; }
+.chip {
+    flex-direction: row; flex-shrink: 1; align-items: center;
+    background-color: rgba(255,255,255,0.08);
+    border-top-left-radius: 24px; border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;
+    padding-left: 12px; padding-right: 12px; padding-top: 5px; padding-bottom: 5px;
+    margin-right: 8px; margin-top: 3px; margin-bottom: 3px;
+}
+.chip-label { color: rgb(255,255,255); font-size: 26px; white-space: nowrap; }
+.chip-row { flex-direction: row; flex-wrap: wrap; }
+.dot { font-size: 25px; margin-right: 6px; }
+.dot-on { color: rgb(64, 242, 115); }
+.dot-off { color: rgb(250, 89, 89); }
+
+/* Bottom action dock: primary scan row + 3-column secondary grid.
+   Sits above the tab bar so the AR view keeps the middle of the screen. */
+.dock {
+    margin-top: 10px; margin-left: 10px; margin-right: 10px;
+    flex-direction: column; max-height: 44%;
+    padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;
+}
+.dock-primary-row { flex-direction: row; }
+.dock-primary { flex-grow: 3; margin-right: 8px; }
+.dock-stop { flex-grow: 1; min-width: 110px; }
+.dock-grid { flex-direction: row; flex-wrap: wrap; margin-top: 4px; }
+.dock-grid .dock-btn { flex-grow: 1; min-width: 30%; margin-left: 4px; margin-right: 4px; height: 98px; font-size: 32px; }
+
+/* Guidance card: bottom sheet above dock, hides dock while focused. */
+.route-panel {
+    margin-top: 10px; margin-left: 10px; margin-right: 10px;
+    padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px;
+}
+.route-text { color: rgb(255,255,255); font-size: 37px; white-space: normal; margin-bottom: 12px; }
+.row { flex-direction: row; }
+.row .btn { flex-grow: 1; margin-left: 5px; margin-right: 5px; }
+
+/* Telemetry bottom sheet above dock. */
+.telemetry-panel {
+    margin-top: 10px; margin-left: 10px; margin-right: 10px; height: 475px;
+    padding-left: 16px; padding-right: 16px; padding-top: 14px; padding-bottom: 14px;
+}
+.log-text { color: rgba(255,255,255,0.82); font-size: 28px; white-space: normal; }
+
+/* Bottom tab bar: 4 equal tabs, 76px tall, thumb-friendly. */
+.tab-bar {
+    margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px;
+    flex-direction: row; height: 132px;
+    padding-left: 6px; padding-right: 6px; padding-top: 6px; padding-bottom: 6px;
+}
+.tab {
+    flex-grow: 1; height: 111px; margin-left: 4px; margin-right: 4px;
+    background-color: rgba(255,255,255,0.0);
+    color: rgba(255,255,255,0.62);
+    font-size: 31px; -unity-font-style: bold; -unity-text-align: middle-center;
+    border-top-left-radius: 14px; border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+    border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px;
+}
+.tab:hover { background-color: rgba(255,255,255,0.08); }
+.tab:active { background-color: rgba(255,255,255,0.14); }
+.tab-active { background-color: rgba(0, 100, 224, 0.28); color: rgb(255,255,255); }
+
+/* Dialogs: dimmer + card. Phones get a bottom sheet; tablets get a card. */
+.overlay {
+    position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center; justify-content: center;
+}
+.dialog-card { width: 90%; max-width: 560px; max-height: 86%; }
+.settings-card { width: 90%; max-width: 560px; max-height: 90%; }
+/* Gear: in-flow at the top-right of its own surface so the root
+   safe-area padding keeps it below the notch instead of floating over
+   the unsafe area. It visually docks against the telemetry bar's
+   reserved right margin on the navigation surface. */
+.gear {
+    align-self: flex-end; margin-top: 10px; margin-right: 10px;
+    width: 115px; height: 115px; font-size: 52px;
+    border-top-left-radius: 58px; border-top-right-radius: 58px;
+    border-bottom-left-radius: 58px; border-bottom-right-radius: 58px;
+}
+.status-ok { color: rgb(89,242,128); font-size: 31px; -unity-text-align: middle-center; margin-top: 12px; }
+.status-error { color: rgb(250,102,102); font-size: 31px; -unity-text-align: middle-center; margin-top: 12px; }
+
+.dialog-entries { max-height: 462px; margin-top: 10px; margin-bottom: 10px; }
+.entry-btn { height: 100px; -unity-text-align: middle-left; padding-left: 18px; font-size: 32px; }
+
+.place-wrap { position: absolute; left: 0px; right: 0px; bottom: 580px; align-items: center; }
+.place-card {
+    width: 550px; max-width: 92%;
+    padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;
+    align-items: center;
+}
+.place-message { color: rgba(255,255,255,0.82); font-size: 29px; white-space: nowrap; -unity-text-align: middle-center; margin-top: 10px; }
+.crosshair {
+    position: absolute; left: 0px; right: 0px; top: 42%;
+    color: rgb(255,255,255); font-size: 51px; -unity-font-style: bold; -unity-text-align: middle-center;
+}
+.marker-tag {
+    position: absolute; background-color: rgba(22,25,34,0.88); color: rgb(255,255,255); font-size: 26px;
+    padding-left: 12px; padding-right: 12px; padding-top: 5px; padding-bottom: 5px;
+    border-top-left-radius: 14px; border-top-right-radius: 14px;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+}
+.hidden { display: none; }
+
+/* ---- Compact: phones, portrait or landscape. Bottom-sheet dialogs,
+   dock grid 2 columns, tab bar stays reachable. ---- */
+.compact .brand { font-size: 37px; margin-right: 8px; }
+.compact .chip-label { font-size: 25px; }
+.compact .chip { padding-left: 10px; padding-right: 10px; padding-top: 4px; padding-bottom: 4px; margin-right: 6px; }
+.compact .telemetry-bar { margin-top: 8px; margin-left: 8px; margin-right: 123px; }
+.compact .status-bar { margin-top: 8px; margin-left: 8px; margin-right: 8px; }
+.compact .gear { width: 107px; height: 107px; margin-top: 8px; margin-right: 8px; font-size: 49px; }
+.compact .dock { margin-top: 8px; margin-left: 8px; margin-right: 8px; max-height: 46%; }
+.compact .dock-grid .dock-btn { min-width: 46%; height: 98px; font-size: 31px; }
+.compact .route-panel { margin-top: 8px; margin-left: 8px; margin-right: 8px; }
+.compact .route-text { font-size: 33px; }
+.compact .telemetry-panel { margin-top: 8px; margin-left: 8px; margin-right: 8px; height: 449px; }
+.compact .tab-bar { margin-top: 8px; margin-left: 8px; margin-right: 8px; margin-bottom: 8px; height: 132px; }
+.compact .tab { font-size: 29px; }
+.compact .overlay { align-items: flex-end; justify-content: flex-end; }
+.compact .dialog-card { width: 100%; max-width: 100%; max-height: 92%; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 24px; border-top-right-radius: 24px; }
+.compact .settings-card { width: 100%; max-width: 100%; max-height: 94%; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-top-left-radius: 24px; border-top-right-radius: 24px; }
+.compact .pill { height: 81px; font-size: 29px; }
+.compact .place-wrap { bottom: 590px; }
+.compact .btn { font-size: 33px; }
+.compact .entry-btn { font-size: 31px; }
+
+/* ---- Portrait tuning: keep the middle of the screen clear for AR. ---- */
+.portrait .status-bar { flex-wrap: wrap; }
+.portrait .dialog-entries { max-height: 380px; }
+
+/* ---- Wide: tablets and large landscape. Centered cards, airier dock.
+   Wide alone keeps absolute side chrome; phones/tablets in compact stay
+   in-flow for safe-area anchoring. ---- */
+.wide .app-spacer { display: none; }
+.wide .dock { position: absolute; left: auto; right: 12px; bottom: 12px; top: 140px; width: 360px; max-height: none; }
+.wide .route-panel { position: absolute; left: 12px; right: 384px; top: 12px; bottom: auto; }
+.wide .telemetry-panel { position: absolute; left: 12px; bottom: 12px; width: 640px; height: 480px; }
+.wide .tab-bar { position: absolute; left: 12px; right: auto; bottom: 12px; width: 420px; }
+.wide .chip-label { font-size: 16px; }
+.wide .overlay { align-items: center; justify-content: center; }

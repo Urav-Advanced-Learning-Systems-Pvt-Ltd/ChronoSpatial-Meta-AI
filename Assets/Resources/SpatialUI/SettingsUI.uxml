@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Button name="gearBtn" text="⚙" class="btn gear" />
+    <ui:VisualElement name="overlay" class="overlay hidden">
+        <ui:VisualElement name="card" class="card settings-card">
+            <ui:Label text="Settings" class="title" />
+            <ui:Label text="Meta API Key" class="field-label" />
+            <ui:VisualElement class="row">
+                <ui:TextField name="apiKeyField" class="field" style="flex-grow: 1;" />
+                <ui:Button name="keyToggle" text="Show" class="btn" style="width: 104px; margin-left: 10px;" />
+            </ui:VisualElement>
+            <ui:Label text="Base Endpoint" class="field-label" />
+            <ui:TextField name="endpointField" class="field" />
+            <ui:Label text="Reasoning Model" class="field-label" />
+            <ui:TextField name="modelField" class="field" />
+            <ui:Label text="Perception Model" class="field-label" />
+            <ui:TextField name="samModelField" class="field" />
+            <ui:VisualElement class="row" style="margin-top: 16px;">
+                <ui:Button name="testSaveBtn" text="Test &amp; Save" class="btn btn-primary" />
+                <ui:Button name="closeBtn" text="Close" class="btn" />
+            </ui:VisualElement>
+            <ui:Label name="statusLabel" text="" class="status-ok" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

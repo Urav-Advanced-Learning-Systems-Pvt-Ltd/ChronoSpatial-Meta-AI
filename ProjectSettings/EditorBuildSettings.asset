@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SpatialAIScene.unity
+    guid: f9f67a57409d3be469c92969eaf3aaff
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ec04bb0ce7e6dff478ac1f4332252db4, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 2a753f03a9327754faee0abc048c9ebe, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: ea679debbec48c943bbd83c541290023, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 03d7b6fb94022934fafcb696ebfedd09, type: 2}

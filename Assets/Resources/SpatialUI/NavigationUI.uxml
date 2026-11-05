@@ -1,0 +1,66 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <!-- SpatialAI mobile shell v5: portrait-first, safe-area aware. The
+         brand header, sheets, status chips, dock, and tab bar are IN-FLOW
+         (top to bottom) so the UIDocument root's safe-area padding pushes
+         them below the notch and above the gesture bar; absolute
+         positioning is reserved for the full-screen dialog dimmer (which
+         must cover the unsafe area) and wide-tablet side chrome. The gear
+         floats top-right on the settings surface, aligned with the brand
+         row. All legacy element names are preserved for
+         SpatialNavigationUI queries. -->
+    <ui:VisualElement name="appRoot" class="app-root">
+        <ui:VisualElement name="telemetryBar" class="glass telemetry-bar">
+            <ui:Label text="SpatialAI" class="brand" />
+        </ui:VisualElement>
+        <ui:VisualElement name="spacer" class="app-spacer" />
+        <ui:VisualElement name="routePanel" class="glass route-panel hidden">
+            <ui:Label name="routeText" text="" class="route-text" />
+            <ui:VisualElement class="row">
+                <ui:Button name="startBtn" text="Start" class="btn btn-primary" />
+                <ui:Button name="endBtn" text="End" class="btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="telemetryPanel" class="card telemetry-panel hidden">
+            <ui:Label text="Session details" class="sheet-handle-title" />
+            <ui:ScrollView name="logScroll" style="flex-grow: 1;">
+                <ui:Label name="logText" text="" class="log-text" />
+            </ui:ScrollView>
+            <ui:Button name="telemetryCloseBtn" text="Close" class="btn" />
+        </ui:VisualElement>
+        <ui:VisualElement name="statusBar" class="glass status-bar">
+            <ui:VisualElement class="chip">
+                <ui:Label name="trackingDot" text="●" class="dot dot-off" />
+                <ui:Label name="trackingLabel" text="No tracking" class="chip-label" />
+            </ui:VisualElement>
+            <ui:VisualElement class="chip"><ui:Label name="keyframesChip" text="Frames: 0" class="chip-label" /></ui:VisualElement>
+            <ui:VisualElement class="chip"><ui:Label name="landmarksChip" text="Points: 0" class="chip-label" /></ui:VisualElement>
+            <ui:VisualElement class="chip"><ui:Label name="entitiesChip" text="Objects: 0" class="chip-label" /></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="dock" class="glass dock">
+            <ui:VisualElement class="dock-primary-row">
+                <ui:Button name="scanBtn" text="Scan Environment" class="btn btn-primary dock-primary" />
+                <ui:Button name="stopBtn" text="Stop" class="btn dock-stop" />
+            </ui:VisualElement>
+            <ui:VisualElement class="dock-grid">
+                <ui:Button name="saveBtn" text="Save Map" class="btn dock-btn" />
+                <ui:Button name="loadBtn" text="Load Map/Path" class="btn dock-btn" />
+                <ui:Button name="detectBtn" text="Ask AI" class="btn dock-btn" />
+                <ui:Button name="pathBtn" text="Navigation Path" class="btn dock-btn" />
+                <ui:Button name="telemetryBtn" text="Details" class="btn dock-btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="tabBar" class="glass tab-bar">
+            <ui:Button name="tabScanBtn" text="Scan" class="tab tab-active" />
+            <ui:Button name="tabMapsBtn" text="Maps" class="tab" />
+            <ui:Button name="tabNavigateBtn" text="Navigate" class="tab" />
+            <ui:Button name="tabAIBtn" text="Ask AI" class="tab" />
+        </ui:VisualElement>
+        <ui:VisualElement name="dialogOverlay" class="overlay hidden">
+            <ui:VisualElement name="dialogCard" class="card dialog-card">
+                <ui:VisualElement name="sheetHandle" class="sheet-handle" />
+                <ui:Label name="dialogTitle" text="" class="title" />
+                <ui:VisualElement name="dialogBody" style="flex-direction: column;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

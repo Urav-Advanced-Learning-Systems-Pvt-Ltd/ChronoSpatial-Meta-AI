@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Label name="crosshair" text="+" class="crosshair" />
+    <ui:Label name="markerTag" text="Main Entry" class="marker-tag hidden" />
+    <ui:VisualElement name="placeWrap" class="place-wrap">
+        <ui:VisualElement class="glass place-card">
+            <ui:Label name="placeMessage" text="Scan an area to populate the map." class="place-message" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
